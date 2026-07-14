@@ -462,6 +462,40 @@
       padding: 0.55rem 1.4rem;
     }
 
+    /* ===================== LANGUAGE TOGGLE ===================== */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--outline-variant);
+      background: var(--surface-container-lowest);
+      color: var(--on-surface-variant);
+      font-family: var(--font-headline);
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    .lang-toggle:hover {
+      background: var(--surface-container);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
     /* ===================== HERO ===================== */
     #hero {
       padding-top: calc(var(--spacing-24) + 10px);
@@ -1275,6 +1309,7 @@
   <!-- Cloudflare Web Analytics -->
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "VOTRE_TOKEN_ICI"}'></script> -->
   <!-- End Cloudflare Web Analytics -->
+  <script src="./i18n.js" type="module"></script>
 </head>
 
 <body>
@@ -1283,8 +1318,12 @@
   <nav>
     <div class="container">
       <a href="#" class="nav-logo">BD<span>HENTAI</span></a>
-      <a href="https://baltazar.mymaketou.store/fr/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
-        class="btn-primary nav-cta">📚 Acheter le Pack</a>
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" onclick="switchLang(this.getAttribute('data-lang'))" data-lang="en" title="Switch language">EN</button>
+        <a href="https://baltazar.mymaketou.shop/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
+          class="btn-primary nav-cta" data-i18n="nav.cta">📚 Acheter le Pack</a>
+
+      </div>
     </div>
   </nav>
 
@@ -1295,19 +1334,20 @@
 
         <!-- LEFT COLUMN: copy -->
         <div>
-          <div class="label-upper hero-badge fade-up">🔥 Offre Exclusive — +14 838 BD PDF</div>
-          <h1 class="display-lg hero-title fade-up fade-up-d1">
+          <div class="label-upper hero-badge fade-up" data-i18n="hero.badge">🔥 Offre Exclusive — +14 838 BD PDF</div>
+          <h1 class="display-lg hero-title fade-up fade-up-d1" data-i18n-html="hero.title">
             <em>Pack +14 838 BD Hentaï</em><br />
             pour Homme Mature et Discret<br />
             Téléchargement Immédiat 📚
           </h1>
-          <p class="body-md hero-desc fade-up fade-up-d2">
+          <p class="body-md hero-desc fade-up fade-up-d2" data-i18n-html="hero.desc">
             Plus de <strong>14 838 BD hentaï en PDF</strong> pour homme mature — collection complète livrée directement par email dès le paiement. 100% discret.
           </p>
 
           <div class="hero-actions fade-up fade-up-d3">
-            <a href="https://baltazar.mymaketou.store/fr/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
-              class="btn-primary" id="cta-hero" target="_blank" rel="noopener">
+            <a href="https://baltazar.mymaketou.shop/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
+              class="btn-primary" id="cta-hero" target="_blank" rel="noopener" data-i18n="hero.cta">
+
               🛒 📚 Acheter le Pack
             </a>
           </div>
@@ -1324,10 +1364,10 @@
           </p>
 
           <div class="trust-row fade-up fade-up-d4">
-            <span class="trust-badge"><span class="trust-icon">🔒</span> Paiement sécurisé</span>
-            <span class="trust-badge"><span class="trust-icon">⚡</span> Livraison immédiate</span>
-            <span class="trust-badge"><span class="trust-icon">🛡️</span> Données privées</span>
-            <span class="trust-badge"><span class="trust-icon">📩</span> Fichiers par email</span>
+            <span class="trust-badge"><span class="trust-icon">🔒</span> <span data-i18n="hero.trust_secure">Paiement sécurisé</span></span>
+            <span class="trust-badge"><span class="trust-icon">⚡</span> <span data-i18n="hero.trust_instant">Livraison immédiate</span></span>
+            <span class="trust-badge"><span class="trust-icon">🛡️</span> <span data-i18n="hero.trust_private">Données privées</span></span>
+            <span class="trust-badge"><span class="trust-icon">📩</span> <span data-i18n="hero.trust_email">Fichiers par email</span></span>
           </div>
         </div>
 
@@ -1365,7 +1405,7 @@
   <section class="section" id="video-tuto" style="padding-bottom: 0;">
     <div class="container">
       <div class="section-header">
-        <h2 class="display-sm" style="margin-bottom: var(--spacing-6);">Découvrez un aperçu de votre future collection</h2>
+        <h2 class="display-sm" style="margin-bottom: var(--spacing-6);" data-i18n="video.title">Découvrez un aperçu de votre future collection</h2>
       </div>
       <div style="max-width: 800px; margin: 0 auto;">
         <div class="video-container">
@@ -1374,7 +1414,7 @@
             Votre navigateur ne supporte pas la lecture de vidéos.
           </video>
         </div>
-        <p class="body-md" style="font-size:0.85rem; margin-top: 1rem; text-align: center;">Regardez cette courte vidéo pour découvrir un aperçu de notre collection exclusive de BD adultes.</p>
+        <p class="body-md" style="font-size:0.85rem; margin-top: 1rem; text-align: center;" data-i18n="video.subtitle">Regardez cette courte vidéo pour découvrir un aperçu de notre collection exclusive de BD adultes.</p>
       </div>
     </div>
   </section>
@@ -1384,19 +1424,19 @@
     <div class="container">
       <div>
         <span class="strip-number">14 838</span>
-        <span class="strip-label">BD Hentaï PDF</span>
+        <span class="strip-label" data-i18n="stats.videos_label">BD Hentaï PDF</span>
       </div>
       <div>
         <span class="strip-number">100%</span>
-        <span class="strip-label">Privé & Discret</span>
+        <span class="strip-label" data-i18n="stats.prive">Privé & Discret</span>
       </div>
       <div>
         <span class="strip-number">⚡</span>
-        <span class="strip-label">Livraison Immédiate</span>
+        <span class="strip-label" data-i18n="stats.acces">Livraison Immédiate</span>
       </div>
       <div>
         <span class="strip-number">+2 100</span>
-        <span class="strip-label">Clients satisfaits</span>
+        <span class="strip-label" data-i18n="stats.membres">Clients satisfaits</span>
       </div>
     </div>
   </div>
@@ -1405,16 +1445,16 @@
   <section class="section" id="offre">
     <div class="container">
       <div class="section-header">
-        <p class="label-upper">Ce que tu reçois</p>
-        <h2 class="display-sm">Voici exactement ce que<br />tu vas recevoir :</h2>
-        <p class="body-md">Un fichier ZIP contenant +14 838 BD hentaï en PDF, livré directement dans votre email.</p>
+        <p class="label-upper" data-i18n="offer.label">Ce que tu reçois</p>
+        <h2 class="display-sm" data-i18n-html="offer.title">Voici exactement ce que<br />tu vas recevoir :</h2>
+        <p class="body-md" data-i18n="offer.desc">Un fichier ZIP contenant +14 838 BD hentaï en PDF, livré directement dans votre email.</p>
       </div>
 
       <div class="offer-grid">
         <div class="offer-card">
           <div class="offer-icon red">📚</div>
-          <p class="label-upper" style="color: var(--primary); margin-bottom: 0.4rem;">Collection BD</p>
-          <p class="title-lg">+14 838 BD Hentaï PDF</p>
+          <p class="label-upper" style="color: var(--primary); margin-bottom: 0.4rem;" data-i18n="offer.card1_label">Collection BD</p>
+          <p class="title-lg" data-i18n="offer.card1_title">+14 838 BD Hentaï PDF</p>
           <p class="offer-value">Valeur : <span>25 768 FCFA</span></p>
           <p class="body-md" style="margin-top: 0.75rem; font-size:0.9rem;">
             Collection massive de BD hentaï pour adultes en PDF haute qualité — prête à télécharger.
@@ -1422,8 +1462,8 @@
         </div>
         <div class="offer-card">
           <div class="offer-icon gold">📧</div>
-          <p class="label-upper" style="color: var(--secondary); margin-bottom: 0.4rem;">Livraison Sécurisée</p>
-          <p class="title-lg">Email 100% Discret</p>
+          <p class="label-upper" style="color: var(--secondary); margin-bottom: 0.4rem;" data-i18n="offer.card2_label">Livraison Sécurisée</p>
+          <p class="title-lg" data-i18n="offer.card2_title">Email 100% Discret</p>
           <p class="offer-value">Valeur : <span>Inclus</span></p>
           <p class="body-md" style="margin-top: 0.75rem; font-size:0.9rem;">
             Livraison par email sécurisé. Aucune trace visible. Paiement avec pseudonyme possible.
@@ -1431,8 +1471,8 @@
         </div>
         <div class="offer-card">
           <div class="offer-icon dark">♾️</div>
-          <p class="label-upper" style="color: var(--on-surface-variant); margin-bottom: 0.4rem;">Propriété Complète</p>
-          <p class="title-lg">Fichiers à Vie</p>
+          <p class="label-upper" style="color: var(--on-surface-variant); margin-bottom: 0.4rem;" data-i18n="offer.card3_label">Propriété Complète</p>
+          <p class="title-lg" data-i18n="offer.card3_title">Fichiers à Vie</p>
           <p class="offer-value">Valeur : <span>Inclus</span></p>
           <p class="body-md" style="margin-top: 0.75rem; font-size:0.9rem;">
             Une fois téléchargé, les fichiers t'appartiennent. Aucun abonnement, aucune limite.
@@ -1444,12 +1484,12 @@
       <div
         style="margin-top: var(--spacing-8); background: var(--surface-container-low); border-radius: 1.25rem; padding: var(--spacing-6); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <p class="label-upper" style="color: var(--primary);">Valeur totale</p>
+          <p class="label-upper" style="color: var(--primary);" data-i18n="offer.total_label">Valeur totale</p>
           <p class="title-lg">25 768 FCFA<span
               style="font-size:0.85rem; font-weight:400; color:var(--on-surface-variant);"> de contenu</span></p>
         </div>
         <div style="text-align: right;">
-          <p class="label-upper" style="color: var(--secondary);">Prix de l'offre aujourd'hui</p>
+          <p class="label-upper" style="color: var(--secondary);" data-i18n="offer.price_label">Prix de l'offre aujourd'hui</p>
           <p style="font-family:var(--font-headline); font-size:2rem; font-weight:800; color:var(--primary);">13 000
             FCFA</p>
           <p style="font-size:0.85rem; color:var(--on-surface-variant); text-decoration:line-through;">25 768 FCFA</p>
@@ -1473,36 +1513,34 @@
                 fill="#229ED9" />
             </svg>
           </div>
-          <p class="label-upper" style="color:var(--primary); margin-bottom:0.5rem;">Pourquoi notre Pack ?</p>
-          <h2 class="display-sm" style="margin-bottom:var(--spacing-6);">La plus grande collection<br />de BD adultes disponible</h2>
+          <p class="label-upper" style="color:var(--primary); margin-bottom:0.5rem;" data-i18n="telegram.label">Pourquoi notre Pack ?</p>
+          <h2 class="display-sm" style="margin-bottom:var(--spacing-6);" data-i18n-html="telegram.title">La plus grande collection<br />de BD adultes disponible</h2>
           <ul class="feature-list">
             <li>
               <div class="feature-check">✓</div>
-              <p class="body-md"><strong style="color:var(--on-surface);">+14 838 BD PDF</strong> — La plus grande collection de BD hentaï disponible à ce prix en Afrique francophone.</p>
+              <p class="body-md"><strong style="color:var(--on-surface);" data-i18n="telegram.feat1_strong">+14 838 BD PDF</strong><span data-i18n="telegram.feat1_text"> — La plus grande collection de BD hentaï disponible à ce prix en Afrique francophone.</span></p>
             </li>
             <li>
               <div class="feature-check">✓</div>
-              <p class="body-md"><strong style="color:var(--on-surface);">PDF haute qualité</strong> — Tous les fichiers sont en haute résolution, lisibles sur mobile, tablette ou PC.</p>
+              <p class="body-md"><strong style="color:var(--on-surface);" data-i18n="telegram.feat2_strong">PDF haute qualité</strong><span data-i18n="telegram.feat2_text"> — Tous les fichiers sont en haute résolution, lisibles sur mobile, tablette ou PC.</span></p>
             </li>
             <li>
               <div class="feature-check">✓</div>
-              <p class="body-md"><strong style="color:var(--on-surface);">Livraison immédiate</strong> — Reçois ton fichier ZIP dans ta boîte email en moins de 5 minutes après paiement.</p>
+              <p class="body-md"><strong style="color:var(--on-surface);" data-i18n="telegram.feat3_strong">Livraison immédiate</strong><span data-i18n="telegram.feat3_text"> — Reçois ton fichier ZIP dans ta boîte email en moins de 5 minutes après paiement.</span></p>
             </li>
             <li>
               <div class="feature-check">✓</div>
-              <p class="body-md"><strong style="color:var(--on-surface);">Prix imbattable</strong> — 13 000 FCFA pour +14 838 BD, soit moins de 1 FCFA par fichier. Introuvable ailleurs.</p>
+              <p class="body-md"><strong style="color:var(--on-surface);" data-i18n="telegram.feat4_strong">Prix imbattable</strong><span data-i18n="telegram.feat4_text"> — 13 000 FCFA pour +14 838 BD, soit moins de 1 FCFA par fichier. Introuvable ailleurs.</span></p>
             </li>
           </ul>
-          <p style="margin-top:var(--spacing-6); font-size:0.85rem; color:var(--on-surface-variant);">
-            ⚠️ <em>Assurez-vous d'avoir de l'espace de stockage disponible sur votre appareil pour le pack complet.</em>
-          </p>
+          <p style="margin-top:var(--spacing-6); font-size:0.85rem; color:var(--on-surface-variant);" data-i18n-html="telegram.iphone_note">⚠️ <em>Assurez-vous d'avoir de l'espace de stockage disponible sur votre appareil pour le pack complet.</em></p>
         </div>
 
         <div class="telegram-visual">
-          <p class="title-sm" style="margin-bottom:var(--spacing-4); text-align: center;">Profite de la collection dès aujourd'hui ! 📚🔥</p>
+          <p class="title-sm" style="margin-bottom:var(--spacing-4); text-align: center;" data-i18n="telegram.visual_title">Profite de la collection dès aujourd'hui ! 📚🔥</p>
           <div
             style="background: var(--surface-container-low); border-radius: 1rem; padding: 1.5rem; text-align: center;">
-            <p class="body-md">Une fois ton paiement validé, tu recevras un email avec le lien de téléchargement du pack complet de +14 838 BD hentaï en PDF.</p>
+            <p class="body-md" data-i18n="telegram.visual_desc">Une fois ton paiement validé, tu recevras un email avec le lien de téléchargement du pack complet de +14 838 BD hentaï en PDF.</p>
           </div>
         </div>
       </div>
@@ -1513,30 +1551,30 @@
   <section class="section" id="avis">
     <div class="container">
       <div class="section-header">
-        <p class="label-upper">Avis clients</p>
-        <h2 class="display-sm">+2 100 clients<br />nous font déjà confiance</h2>
+        <p class="label-upper" data-i18n="testimonials.label">Avis clients</p>
+        <h2 class="display-sm" data-i18n-html="testimonials.title">+2 100 clients<br />nous font déjà confiance</h2>
       </div>
 
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">J'ai reçu le lien de téléchargement en 3 minutes. Le pack est énorme, des milliers de BD de qualité. Je recommande à 100%.</p>
+          <p class="testimonial-text" data-i18n="testimonials.t1_text">J'ai reçu le lien de téléchargement en 3 minutes. Le pack est énorme, des milliers de BD de qualité. Je recommande à 100%.</p>
           <p class="testimonial-author"> Membre #312</p>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">J'étais sceptique mais j'ai tenté. Le fichier ZIP est arrivé rapidement et la qualité des BD est vraiment bonne.</p>
+          <p class="testimonial-text" data-i18n="testimonials.t2_text">J'étais sceptique mais j'ai tenté. Le fichier ZIP est arrivé rapidement et la qualité des BD est vraiment bonne.</p>
           <p class="testimonial-author"> Membre #876</p>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Incroyable collection ! Plus de 14 000 fichiers comme promis. La livraison par email est simple et discrète 👌</p>
+          <p class="testimonial-text" data-i18n="testimonials.t3_text">Incroyable collection ! Plus de 14 000 fichiers comme promis. La livraison par email est simple et discrète 👌</p>
           <p class="testimonial-author"> Membre #1503</p>
         </div>
       </div>
 
       <div style="text-align:center; margin-top:var(--spacing-8);">
-        <p class="body-md">Rejoins les <strong style="color:var(--primary);">2 100 clients satisfaits</strong> et accède à la collection dès maintenant.</p>
+        <p class="body-md" data-i18n-html="testimonials.cta_text">Rejoins les <strong style="color:var(--primary);">2 100 clients satisfaits</strong> et accède à la collection dès maintenant.</p>
       </div>
     </div>
   </section>
@@ -1545,10 +1583,10 @@
   <section class="section" id="proofs" style="background: var(--surface-container-lowest);">
     <div class="container">
       <div class="section-header">
-        <p class="label-upper">Preuves de satisfaction</p>
-        <h2 class="display-sm">Ils ont déjà franchi le pas et ont donné leur autorisation pour préciser leur nom dans
+        <p class="label-upper" data-i18n="proofs.label">Preuves de satisfaction</p>
+        <h2 class="display-sm" data-i18n="proofs.title">Ils ont déjà franchi le pas et ont donné leur autorisation pour préciser leur nom dans
           les témoignages. La confidentialité de nos clients est très primordial pour nous!</h2>
-        <p class="body-md">Voici quelques retours de nos membres satisfaits par la qualité de nos services.</p>
+        <p class="body-md" data-i18n="proofs.desc">Voici quelques retours de nos membres satisfaits par la qualité de nos services.</p>
       </div>
 
       <div class="proof-grid">
@@ -1584,55 +1622,55 @@
   <section class="section faq-section" id="faq">
     <div class="container">
       <div class="section-header">
-        <p class="label-upper">FAQ</p>
-        <h2 class="display-sm">Foire aux questions</h2>
+        <p class="label-upper" data-i18n="faq.label">FAQ</p>
+        <h2 class="display-sm" data-i18n="faq.title">Foire aux questions</h2>
       </div>
 
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq.q1">
             Comment est-ce que je reçois les fichiers ?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-a">
+          <div class="faq-a" data-i18n="faq.a1">
             Après ton paiement, tu reçois un email avec le lien de téléchargement du pack ZIP (+14 838 BD hentaï PDF).
             Assure-toi de saisir ton adresse email correctement lors de la commande.
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq.q2">
             Est-ce que c'est vraiment discret ?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-a">
+          <div class="faq-a" data-i18n="faq.a2">
             Oui, totalement. Tu peux utiliser un pseudonyme lors du paiement.
             La livraison se fait par email et le contenu est un simple fichier ZIP — rien de visible sur ton téléphone.
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq.q3">
             Combien de fichiers y a-t-il exactement ?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-a">
+          <div class="faq-a" data-i18n="faq.a3">
             Le pack contient exactement +14 838 fichiers PDF de BD hentaï. Assure-toi d'avoir de l'espace de stockage disponible sur ton appareil.
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq.q4">
             Combien de temps ai-je accès au canal ?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-a">
+          <div class="faq-a" data-i18n="faq.a4">
             Une fois téléchargés, les fichiers t'appartiennent définitivement. Tu peux les transférer sur tous tes appareils sans limite.
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq.q5">
             Les fichiers sont-ils compatibles avec tous les appareils ?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-a">
+          <div class="faq-a" data-i18n="faq.a5">
             Oui ! Les fichiers PDF sont compatibles avec tous les appareils : Android, iPhone, PC, Mac, tablette. Compatible avec toute visionneuse PDF.
           </div>
         </div>
@@ -1643,24 +1681,26 @@
   <!-- ===== CTA SECTION ===== -->
   <section class="cta-section" id="acheter">
     <div class="container">
-      <p class="label-upper" style="color: rgba(255,255,255,0.7); margin-bottom:0.75rem;">🔥 LA PROMO EST DISPONIBLE
+      <p class="label-upper" style="color: rgba(255,255,255,0.7); margin-bottom:0.75rem;" data-i18n="cta_section.promo_label">🔥 LA PROMO EST DISPONIBLE
         UNIQUEMENT POUR TOUT DE SUITE</p>
-      <h2 class="display-sm">Prêt à accéder à +14 838<br />BD Hentaï en PDF ?</h2>
-      <p>Téléchargement immédiat · Paiement sécurisé · 100% Discret</p>
+      <h2 class="display-sm" data-i18n-html="cta_section.title">Prêt à accéder à +14 838<br />BD Hentaï en PDF ?</h2>
+      <p data-i18n="cta_section.subtitle">Téléchargement immédiat · Paiement sécurisé · 100% Discret</p>
       <div class="cta-price-row">
         <span class="cta-price-now">13 000 FCFA</span>
         <span class="cta-price-old">25 768 FCFA</span>
       </div>
-      <a href="https://baltazar.mymaketou.store/fr/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
-        class="btn-white" id="cta-main" target="_blank" rel="noopener">
+      <a href="https://baltazar.mymaketou.shop/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
+        class="btn-white" id="cta-main" target="_blank" rel="noopener" data-i18n="cta_section.btn">
+
         📚 Acheter le Pack — 13 000 FCFA
       </a>
       <p
-        style="margin-top:1.5rem; font-size:0.9rem; color: rgba(255,255,255,0.95); font-weight: 500; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; background: rgba(0,0,0,0.1); padding: 1rem; border-radius: 0.75rem; border: 1px dashed rgba(255,255,255,0.3);">
+        style="margin-top:1.5rem; font-size:0.9rem; color: rgba(255,255,255,0.95); font-weight: 500; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; background: rgba(0,0,0,0.1); padding: 1rem; border-radius: 0.75rem; border: 1px dashed rgba(255,255,255,0.3);"
+        data-i18n-html="cta_section.warning">
         ⚠️ <strong>Important :</strong> Assurez-vous d'insérer correctement votre email lors de l'achat pour recevoir
         votre lien de téléchargement. Vous pouvez utiliser un <strong>pseudonyme</strong> lors du paiement pour préserver votre anonymat.
       </p>
-      <p style="margin-top:1.5rem; font-size:0.85rem; opacity:0.8;">Moyens de paiement sécurisés disponibles via mobile
+      <p style="margin-top:1.5rem; font-size:0.85rem; opacity:0.8;" data-i18n="cta_section.payment_methods">Moyens de paiement sécurisés disponibles via mobile
         money ( Wave, Orange Money, MTN momo, Moov money, ... ) ou carte bancaire ( Visa et MasterCard )</p>
       <img src="./assets/moyens-paiement.png" alt="Moyens de paiement sécurisés"
         style="width: 100%; max-width: 350px; margin: 1rem auto 0; display: block; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
@@ -1671,8 +1711,8 @@
   <!-- ===== UPSELL SECTION ===== -->
   <section class="section" id="upsell" style="background: var(--surface-container-high); border-top: 1px solid var(--outline-variant); text-align: center;">
     <div class="container">
-      <p class="label-upper" style="color: var(--primary); margin-bottom: 1rem;">Recommandé pour vous</p>
-      <h2 class="display-sm" style="margin-bottom: 2rem;">Nos Collections Premium Exclusives</h2>
+      <p class="label-upper" style="color: var(--primary); margin-bottom: 1rem;" data-i18n="upsell.label">Recommandé pour vous</p>
+      <h2 class="display-sm" style="margin-bottom: 2rem;" data-i18n="upsell.title">Nos Collections Premium Exclusives</h2>
       
       <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 850px; margin: 0 auto;">
         
@@ -1680,9 +1720,9 @@
         <div style="background: white; border-radius: 2rem; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; text-align: left;">
           <img src="https://balta.famatchai226.workers.dev/assets/hero%20caroussel/0.jpeg" alt="Collection Balta" style="width: 120px; height: 120px; object-fit: cover; border-radius: 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 2px solid white;">
           <div style="flex: 1; min-width: 280px;">
-            <h3 class="title-lg" style="margin-bottom: 0.5rem; color: var(--on-surface);">Collection Premium Baltazar</h3>
-            <p class="body-md" style="font-size: 0.95rem; margin-bottom: 1.5rem;">Ne vous contentez pas d'une seule influenceuse. Accédez à notre canal massif contenant plus de 2000 vidéos exclusives.</p>
-            <a href="https://balta.famatchai226.workers.dev/" class="btn-primary" style="animation: none;">Voir l'offre Premium →</a>
+            <h3 class="title-lg" style="margin-bottom: 0.5rem; color: var(--on-surface);" data-i18n="upsell.balta_title">Collection Premium Baltazar</h3>
+            <p class="body-md" style="font-size: 0.95rem; margin-bottom: 1.5rem;" data-i18n="upsell.balta_desc">Ne vous contentez pas d'une seule influenceuse. Accédez à notre canal massif contenant plus de 2000 vidéos exclusives.</p>
+            <a href="https://balta.famatchai226.workers.dev/" class="btn-primary" style="animation: none;" data-i18n="upsell.balta_btn">Voir l'offre Premium →</a>
           </div>
         </div>
 
@@ -1690,9 +1730,9 @@
         <div style="background: white; border-radius: 2rem; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; text-align: left;">
           <img src="https://kera.famatchai226.workers.dev/assets/hero%20caroussel/0.jpeg" alt="Collection Influenceuse Kera" style="width: 120px; height: 120px; object-fit: cover; border-radius: 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 2px solid white;">
           <div style="flex: 1; min-width: 280px;">
-            <h3 class="title-lg" style="margin-bottom: 0.5rem; color: var(--on-surface);">Accès Privé Vidéos Influenceuse</h3>
-            <p class="body-md" style="font-size: 0.95rem; margin-bottom: 1.5rem;">Accédez instantanément aux vidéos privées d'une influenceuse qui a fait le buzz via notre canal Télégram sécurisé.</p>
-            <a href="https://kera.famatchai226.workers.dev/" class="btn-secondary" style="animation: none;" target="_blank" rel="noopener">Voir l'offre Kera →</a>
+            <h3 class="title-lg" style="margin-bottom: 0.5rem; color: var(--on-surface);" data-i18n="upsell.kera_title">Accès Privé Vidéos Influenceuse</h3>
+            <p class="body-md" style="font-size: 0.95rem; margin-bottom: 1.5rem;" data-i18n="upsell.kera_desc">Accédez instantanément aux vidéos privées d'une influenceuse qui a fait le buzz via notre canal Télégram sécurisé.</p>
+            <a href="https://kera.famatchai226.workers.dev/" class="btn-secondary" style="animation: none;" target="_blank" rel="noopener" data-i18n="upsell.kera_btn">Voir l'offre Kera →</a>
           </div>
         </div>
 
@@ -1703,22 +1743,23 @@
   <footer>
     <div class="container">
       <span class="footer-logo">BAL<em>TAZAR</em></span>
-      <p style="margin-bottom:1rem;">Un problème ? Contactez-nous :</p>
+      <p style="margin-bottom:1rem;" data-i18n="footer.contact_intro">Un problème ? Contactez-nous :</p>
       <p style="margin-bottom: 1.5rem;">
         <a href="mailto:balthazarservice3@gmail.com">balthazarservice3@gmail.com</a>
       </p>
-      <p style="font-size:0.8rem; opacity: 0.5;">© 2024 Baltazar. Tous droits réservés. Contenu exclusivement pour
+      <p style="font-size:0.8rem; opacity: 0.5;" data-i18n="footer.copyright">© 2024 Baltazar. Tous droits réservés. Contenu exclusivement pour
         adultes.</p>
     </div>
   </footer>
 
   <!-- ===== FLOATING CTA BAR ===== -->
   <div class="float-bar" id="floatBar">
-    <span class="float-bar-text">
+    <span class="float-bar-text" data-i18n-html="float_bar.text">
       🔥 Pack BD : <strong>13 000 FCFA</strong> au lieu de 25 768 FCFA
     </span>
-    <a href="https://baltazar.mymaketou.store/fr/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
-      class="btn-primary" style="font-size:0.85rem; padding:0.65rem 1.4rem;" target="_blank" rel="noopener">
+    <a href="https://baltazar.mymaketou.shop/products/veut-tu-14838-pdf-bd-hentai-pour-homme-mature-/checkout"
+      class="btn-primary" style="font-size:0.85rem; padding:0.65rem 1.4rem;" target="_blank" rel="noopener" data-i18n="float_bar.btn">
+
       Acheter 📚
     </a>
   </div>
